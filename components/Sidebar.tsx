@@ -91,7 +91,6 @@ export default function Sidebar() {
               {group.items.map((item, itemIndex) => {
                 const chatPath = `/chat/${groupIndex}-${itemIndex}`;
                 const active = pathname === chatPath;
-
                 return (
                   <button
                     key={itemIndex}

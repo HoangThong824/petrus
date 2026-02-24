@@ -84,10 +84,11 @@ export default function ChatInput({ onSend }: ChatInputProps) {
             // Nếu muốn giới hạn ảnh/audio: accept="image/*,audio/*"
           />
 
-          <div className="relative">
+          <div className="relative ">
             {isRecording ? (
               /* Record interface*/
-              <div className="w-full border border-red-300 bg-red-50 rounded-full py-3 px-4 flex items-center justify-between animate-pulse">
+              <div className="w-full border border-red-300 bg-red-50 rounded-full py-3 px-4 
+                              flex items-center justify-between animate-pulse">
                 <span className="text-red-500 font-medium flex items-center gap-2">
                   <span className="w-2 h-2 bg-red-500 rounded-full animate-ping"></span>
                   Đang ghi âm...
@@ -108,7 +109,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Hỏi bất kỳ điều gì..."
-                  className="w-full text-gray-500 border border-gray-300 rounded-full pl-12 pr-28 py-3 text-sm 
+                  className="w-full text-gray-500 border border-gray-300 rounded-full pl-12 pr-28 py-3 text-sm bg-gray-200
                               focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all"
                 />
 

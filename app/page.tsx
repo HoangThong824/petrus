@@ -15,26 +15,31 @@ const topics = [
     title: "Gia sư Ielts",
     desc: "Nâng cao kiến thức Ielts.",
     icon: <FaGraduationCap />,
+    color: "from-purple-200 via-pink-200 to-yellow-100",
   },
   {
     title: "Gia sư Toeic",
     desc: "Nâng cao toàn diện Toeic.",
     icon: <FaFlag />,
+    color: "from-indigo-500 to-purple-400",
   },
   {
     title: "Gia sư luyện nói",
     desc: "Giúp cải thiện phát âm rõ ràng.",
     icon: <FaMicrophone />,
+    color: "from-lime-400 to-green-500",
   },
   {
     title: "Gia sư luyện nghe",
     desc: "Phát triển kỹ năng nghe tiếng Anh.",
     icon: <FaHeadphones />,
+    color: "from-orange-500 to-yellow-400",
   },
   {
     title: "Gia sư từ điển",
     desc: "Tra cứu nghĩa từ nhanh chóng.",
     icon: <FaBook />,
+    color: "from-blue-900 to-blue-500",
   },
 ];
 
@@ -44,7 +49,7 @@ export default function HomePage() {
       {/* HEADER */}
       <Header />
 
-      {/* */}
+      {/* Topic */}
       <div className="py-10 flex-1 flex items-center justify-center">
         <div className="flex flex-col items-center">
           {/* TITLE */}
@@ -64,7 +69,7 @@ export default function HomePage() {
                 className="group bg-gray-100 rounded-xl shadow-md hover:shadow-lg transition p-5 flex items-center gap-4"
               >
                 {/* ICON */}
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-pink-400 flex items-center justify-center text-white text-xl shrink-0">
+                <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center text-white text-xl shrink-0`}>
                   {item.icon}
                 </div>
 

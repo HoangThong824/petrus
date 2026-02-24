@@ -1,0 +1,176 @@
+"use client";
+
+import { useState, useRef } from "react";
+import { FaMicrophone, FaPaperPlane, FaStop, FaTrash } from "react-icons/fa";
+import { FiPaperclip, FiFile } from "react-icons/fi";
+
+interface ChatInputProps {
+  onSend: (message: string, file?: File | null) => void;
+}
+
+export default function ChatInput({ onSend }: ChatInputProps) {
+  const [message, setMessage] = useState("");
+  const [file, setFile] = useState<File | null>(null);
+  const [isRecording, setIsRecording] = useState(false);
+  
+  // Refs
+  const fileRef = useRef<HTMLInputElement>(null);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const audioChunksRef = useRef<Blob[]>([]);
+
+  // Xử lý gửi tin
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!message.trim() && !file) return;
+    onSend(message, file);
+    
+    // Reset form
+    setMessage("");
+    setFile(null);
+    if (fileRef.current) fileRef.current.value = ""; // Reset input file để chọn lại được
+  };
+
+  // Xử lý chọn file
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setFile(e.target.files[0]);
+    }
+  };
+
+  // Xử lý Ghi âm
+  const startRecording = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mediaRecorder = new MediaRecorder(stream);
+      mediaRecorderRef.current = mediaRecorder;
+      audioChunksRef.current = [];
+
+      mediaRecorder.ondataavailable = (event) => {
+        if (event.data.size > 0) audioChunksRef.current.push(event.data);
+      };
+
+      mediaRecorder.onstop = () => {
+        const audioBlob = new Blob(audioChunksRef.current, { type: "audio/wav" });
+        const audioFile = new File([audioBlob], "voice_record.wav", { type: "audio/wav" });
+        setFile(audioFile);
+        stream.getTracks().forEach(track => track.stop()); // Tắt mic
+      };
+
+      mediaRecorder.start();
+      setIsRecording(true);
+    } catch (error) {
+      alert("Bạn cần cấp quyền truy cập Microphone để ghi âm.");
+    }
+  };
+
+  const stopRecording = () => {
+    if (mediaRecorderRef.current && isRecording) {
+      mediaRecorderRef.current.stop();
+      setIsRecording(false);
+    }
+  };
+
+  return (
+    <div className="bg-gray-100 relative z-10">
+      <div className="max-w-4xl mx-auto px-4 py-4">
+        <form onSubmit={handleSubmit}>
+          {/* --- INPUT FILE (ẨN) - Đặt ở đây để luôn hoạt động --- */}
+          <input
+            ref={fileRef}
+            type="file"
+            hidden
+            onChange={handleFileSelect}
+            // Không để accept để cho phép chọn mọi loại file. 
+            // Nếu muốn giới hạn ảnh/audio: accept="image/*,audio/*"
+          />
+
+          <div className="relative">
+            {isRecording ? (
+              /* Record interface*/
+              <div className="w-full border border-red-300 bg-red-50 rounded-full py-3 px-4 flex items-center justify-between animate-pulse">
+                <span className="text-red-500 font-medium flex items-center gap-2">
+                  <span className="w-2 h-2 bg-red-500 rounded-full animate-ping"></span>
+                  Đang ghi âm...
+                </span>
+                <button 
+                  type="button" 
+                  onClick={stopRecording} 
+                  className="bg-red-500 text-white p-2 rounded-full hover:bg-red-600 transition"
+                >
+                  <FaStop size={14} />
+                </button>
+              </div>
+            ) : (
+              /* Input interface*/
+              <>
+                <input
+                  type="text"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Hỏi bất kỳ điều gì..."
+                  className="w-full text-gray-500 border border-gray-300 rounded-full pl-12 pr-28 py-3 text-sm 
+                              focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all"
+                />
+
+                {/* file button */}
+                <button
+                  type="button"
+                  onClick={() => fileRef.current?.click()}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 p-1"
+                  title="Đính kèm file"
+                >
+                  <FiPaperclip size={20} />
+                </button>
+
+                {/* Micro button */}
+                <button
+                  type="button"
+                  onClick={startRecording}
+                  className="absolute right-14 top-1/2 -translate-y-1/2 text-gray-400 hover:text-red-500 p-1 transition-colors"
+                  title="Ghi âm giọng nói"
+                >
+                  <FaMicrophone size={18} />
+                </button>
+
+                {/* Send button */}
+                <button
+                  type="submit"
+                  disabled={!message.trim() && !file}
+                  className={`
+                    absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-all
+                    ${(message.trim() || file) ? 'bg-orange-500 text-white hover:bg-orange-600 shadow-md' : 'bg-gray-200 text-gray-400 cursor-not-allowed'}
+                  `}
+                >
+                  <FaPaperPlane size={14} />
+                </button>
+                </>
+            )}
+          </div>
+
+          {/* Display file/record*/}
+          {file && !isRecording && (
+            <div className="mt-3 flex items-center gap-3 bg-gray-50 border border-gray-200 w-fit px-4 py-2 rounded-xl animate-in fade-in slide-in-from-bottom-2">
+              <div className="bg-orange-100 p-2 rounded-lg text-orange-600">
+                <FiFile size={18} />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xs font-semibold text-gray-700 max-w-[200px] truncate">{file.name}</span>
+                <span className="text-[10px] text-gray-400">{(file.size / 1024).toFixed(1)} KB</span>
+              </div>
+              <button 
+                type="button" 
+                onClick={() => {
+                  setFile(null);
+                  if (fileRef.current) fileRef.current.value = ""; // Quan trọng: Reset để chọn lại file cũ được
+                }} 
+                className="ml-2 text-gray-400 hover:text-red-500 transition-colors"
+              >
+                <FaTrash size={14}/>
+              </button>
+            </div>
+          )}
+        </form>
+      </div>
+    </div>
+  );
+}

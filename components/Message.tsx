@@ -23,8 +23,8 @@ export default function Message({ sender, text, time, fileUrl, fileType, fileNam
           <div className="flex flex-col gap-1">
              <div className="bg-white border border-gray-100 px-4 py-3 rounded-2xl shadow-sm text-gray-700 text-sm">
                 {text}
+                <span className="text-[10px] text-gray-400 ml-1">{time}</span>
              </div>
-             <span className="text-[10px] text-gray-400 ml-1">{time}</span>
           </div>
         </div>
       )}
@@ -59,8 +59,8 @@ export default function Message({ sender, text, time, fileUrl, fileType, fileNam
                   </a>
                </div>
             )}
+            <span className="text-[10px] text-gray-400 mr-1">{time}</span>
           </div>
-          <span className="text-[10px] text-gray-400 mr-1">{time}</span>
         </div>
       )}
     </div>

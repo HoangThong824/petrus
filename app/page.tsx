@@ -15,7 +15,7 @@ const topics = [
     title: "Gia sư Ielts",
     desc: "Nâng cao kiến thức Ielts.",
     icon: <FaGraduationCap />,
-    color: "from-purple-200 via-pink-200 to-yellow-100",
+    color: "from-purple-300 to-yellow-300",
   },
   {
     title: "Gia sư Toeic",
@@ -65,11 +65,11 @@ export default function HomePage() {
             {topics.map((item, index) => (
               <Link
                 key={index}
-                href="/chat"
+                href="/chat"//need change when update
                 className="group bg-gray-100 rounded-xl shadow-md hover:shadow-lg transition p-5 flex items-center gap-4"
               >
                 {/* ICON */}
-                <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center text-white text-xl shrink-0`}>
+                <div className={`w-12 h-12 rounded-full bg-linear-to-br ${item.color} flex items-center justify-center text-white text-xl shrink-0`}>
                   {item.icon}
                 </div>
 

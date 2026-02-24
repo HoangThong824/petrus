@@ -1,10 +1,16 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+//import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 
-const inter = Inter({ subsets: ["latin"] });
+//const inter = Inter({ subsets: ["latin"] });
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ['latin', 'vietnamese'], // Hỗ trợ tiếng Việt
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "PETRUS KY",
@@ -18,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="vi">
-      <body className={`${inter.className} h-screen overflow-hidden`}>
+      <body className={`${plusJakartaSans.className} h-screen overflow-hidden`}>
         <div className="flex h-full bg-gray-100">
           <Sidebar />
 

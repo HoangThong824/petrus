@@ -18,7 +18,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
 
-  // Xử lý gửi tin
+  // Send handle
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!message.trim() && !file) return;
@@ -27,17 +27,17 @@ export default function ChatInput({ onSend }: ChatInputProps) {
     // Reset form
     setMessage("");
     setFile(null);
-    if (fileRef.current) fileRef.current.value = ""; // Reset input file để chọn lại được
+    if (fileRef.current) fileRef.current.value = ""; // Reset input file
   };
 
-  // Xử lý chọn file
+  // File handle
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       setFile(e.target.files[0]);
     }
   };
 
-  // Xử lý Ghi âm
+  // Record handle
   const startRecording = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -117,7 +117,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                 <button
                   type="button"
                   onClick={() => fileRef.current?.click()}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 p-1"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-black hover:text-gray-600 p-1"
                   title="Đính kèm file"
                 >
                   <FiPaperclip size={20} />
@@ -127,7 +127,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                 <button
                   type="button"
                   onClick={startRecording}
-                  className="absolute right-14 top-1/2 -translate-y-1/2 text-gray-400 hover:text-red-500 p-1 transition-colors"
+                  className="absolute right-14 top-1/2 -translate-y-1/2 text-black hover:text-red-500 p-1 transition-colors"
                   title="Ghi âm giọng nói"
                 >
                   <FaMicrophone size={18} />
@@ -162,7 +162,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                 type="button" 
                 onClick={() => {
                   setFile(null);
-                  if (fileRef.current) fileRef.current.value = ""; // Quan trọng: Reset để chọn lại file cũ được
+                  if (fileRef.current) fileRef.current.value = ""; //Reset
                 }} 
                 className="ml-2 text-gray-400 hover:text-red-500 transition-colors"
               >

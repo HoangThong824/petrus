@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { FaMicrophone, FaPaperPlane, FaStop, FaTrash } from "react-icons/fa";
-import { FiPaperclip, FiFile } from "react-icons/fi";
 import { 
   Paperclip, 
   Mic, 

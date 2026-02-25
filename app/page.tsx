@@ -1,44 +1,45 @@
 "use client";
 
 import Link from "next/link";
-import {
-  FaGraduationCap,
-  FaFlag,
-  FaMicrophone,
-  FaHeadphones,
-  FaBook,
-} from "react-icons/fa";
+import { 
+  GraduationCap,
+  Flag,
+  Mic,
+  Headphones,
+  BookOpen,
+  Search,
+} from "lucide-react";
 import Header from "@/components/Header";
 
 const topics = [
   {
     title: "Gia sư Ielts",
     desc: "Nâng cao kiến thức Ielts.",
-    icon: <FaGraduationCap />,
+    icon: <GraduationCap size={20} />,
     color: "from-purple-300 to-yellow-300",
   },
   {
     title: "Gia sư Toeic",
     desc: "Nâng cao toàn diện Toeic.",
-    icon: <FaFlag />,
+    icon: <Flag size={20} />,
     color: "from-indigo-500 to-purple-400",
   },
   {
     title: "Gia sư luyện nói",
     desc: "Giúp cải thiện phát âm rõ ràng.",
-    icon: <FaMicrophone />,
+    icon: <Mic size={20}  />,
     color: "from-lime-400 to-green-500",
   },
   {
     title: "Gia sư luyện nghe",
     desc: "Phát triển kỹ năng nghe tiếng Anh.",
-    icon: <FaHeadphones />,
+    icon: <Headphones size={20} />,
     color: "from-orange-500 to-yellow-400",
   },
   {
     title: "Gia sư từ điển",
     desc: "Tra cứu nghĩa từ nhanh chóng.",
-    icon: <FaBook />,
+    icon: <BookOpen size={20} />,
     color: "from-blue-900 to-blue-500",
   },
 ];

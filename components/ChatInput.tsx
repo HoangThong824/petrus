@@ -80,8 +80,6 @@ export default function ChatInput({ onSend }: ChatInputProps) {
             type="file"
             hidden
             onChange={handleFileSelect}
-            // Không để accept để cho phép chọn mọi loại file. 
-            // Nếu muốn giới hạn ảnh/audio: accept="image/*,audio/*"
           />
 
           <div className="relative ">
@@ -103,48 +101,59 @@ export default function ChatInput({ onSend }: ChatInputProps) {
               </div>
             ) : (
               /* Input interface*/
-              <>
-                <input
-                  type="text"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Hỏi bất kỳ điều gì..."
-                  className="w-full text-gray-500 border border-gray-300 rounded-full pl-12 pr-28 py-3 text-sm bg-gray-200
-                              focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all"
-                />
+              <div className="flex flex-col w-full bg-gray-200 rounded-3xl p-3 shadow-sm">
+                
+                {/*Input*/}
+                <div className="w-full">
+                  <textarea
+                    rows={2}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Hỏi bất kỳ điều gì..."
+                    className="w-full bg-transparent border-none focus:ring-0 text-gray-700 placeholder-gray-500 resize-none px-2 py-1"
+                  />
+                </div>
 
-                {/* file button */}
-                <button
-                  type="button"
-                  onClick={() => fileRef.current?.click()}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-black hover:text-gray-600 p-1"
-                  title="Đính kèm file"
-                >
-                  <FiPaperclip size={20} />
-                </button>
+                {/*Icon*/}
+                <div className="flex items-center justify-between">
+    
+                  <div className="flex items-center gap-1">
+                    {/*File icon*/}
+                    <button
+                      type="button"
+                      onClick={() => fileRef.current?.click()}
+                      className="p-2.5 text-gray-600 hover:bg-gray-200 rounded-full transition-colors"
+                      title="Đính kèm file"
+                    >
+                      <FiPaperclip size={20} />
+                    </button>
+                    {/*Record icon*/}
+                    <button
+                      type="button"
+                      onClick={startRecording}
+                      className="p-2.5 text-gray-600 hover:bg-gray-200 rounded-full transition-colors"
+                      title="Ghi âm giọng nói"
+                    >
+                      <FaMicrophone size={18} />
+                    </button>
+                  </div>
 
-                {/* Micro button */}
-                <button
-                  type="button"
-                  onClick={startRecording}
-                  className="absolute right-14 top-1/2 -translate-y-1/2 text-black hover:text-red-500 p-1 transition-colors"
-                  title="Ghi âm giọng nói"
-                >
-                  <FaMicrophone size={18} />
-                </button>
-
-                {/* Send button */}
-                <button
-                  type="submit"
-                  disabled={!message.trim() && !file}
-                  className={`
-                    absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-all
-                    ${(message.trim() || file) ? 'bg-orange-500 text-white hover:bg-orange-600 shadow-md' : 'bg-gray-200 text-gray-400 cursor-not-allowed'}
-                  `}
-                >
-                  <FaPaperPlane size={14} />
-                </button>
-                </>
+                  {/*Submit button*/}
+                  <div>
+                    <button
+                      type="submit"
+                      disabled={!message.trim() && !file}
+                      className={`w-9 h-9 rounded-full flex items-center justify-center transition-all
+                        ${(message.trim() || file) 
+                          ? 'bg-orange-500 text-white shadow-md hover:scale-105' 
+                          : 'bg-gray-300 text-gray-500 cursor-not-allowed'}
+                      `}
+                    >
+                      <FaPaperPlane size={16} className="ml-0.5" />
+                    </button>
+                  </div>
+                </div>
+              </div>
             )}
           </div>
 

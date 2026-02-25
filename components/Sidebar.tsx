@@ -8,6 +8,12 @@ import {
   FaMicrophone,
 } from "react-icons/fa";
 import { FiLogOut, FiMessageSquare, FiPlus } from "react-icons/fi";
+import { 
+  Mic, 
+  BookOpen, 
+  Headset,
+  LogOut,
+} from "lucide-react";
 
 /* ===== HISTORY DATA ===== */
 const historyGroups = [
@@ -61,15 +67,15 @@ export default function Sidebar() {
       </div>
 
       {/* MENU */}
-      <nav className="px-4 space-y-3 text-sm text-gray-500">
+      <nav className="px-4 space-y-3 text-sm font-bold text-gray-600">
         <Link href="/" className="flex items-center gap-2">
-          <FaFolder /> Kho tài liệu
+          <BookOpen size={18} /> Kho tài liệu
         </Link>
         <Link href="/" className="flex items-center gap-2">
-          <FaHeadphones /> Luyện nghe
+          <Headset size={18} /> Luyện nghe
         </Link>
         <Link href="/" className="flex items-center gap-2">
-          <FaMicrophone /> Luyện nói
+          <Mic size={18} /> Luyện nói
         </Link>
       </nav>
 
@@ -123,7 +129,7 @@ export default function Sidebar() {
         <span className="text-sm text-black font-semibold">Adela Parkson</span>
 
         <button className="ml-auto w-9 h-9 rounded-full border border-gray-300 flex items-center justify-center">
-          <FiLogOut size={18} className="text-gray-500" />
+          <LogOut size={18} className="text-gray-500" />
         </button>
       </div>
     </aside>

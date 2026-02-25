@@ -3,6 +3,15 @@
 import { useState, useRef } from "react";
 import { FaMicrophone, FaPaperPlane, FaStop, FaTrash } from "react-icons/fa";
 import { FiPaperclip, FiFile } from "react-icons/fi";
+import { 
+  Paperclip, 
+  Mic, 
+  SendHorizontal, 
+  Square, 
+  Trash2, 
+  X,
+  FileText
+} from "lucide-react";
 
 interface ChatInputProps {
   onSend: (message: string, file?: File | null) => void;
@@ -30,11 +39,9 @@ export default function ChatInput({ onSend }: ChatInputProps) {
     if (fileRef.current) fileRef.current.value = ""; // Reset input file
   };
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-  // Nếu nhấn Enter và KHÔNG giữ phím Shift
     if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault(); // Ngăn việc thêm dòng mới trong textarea
+      e.preventDefault();
       
-      // Chỉ gửi khi có nội dung hoặc có file
       if (message.trim() || file) {
         handleSubmit(e); 
       }
@@ -63,7 +70,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
         const audioBlob = new Blob(audioChunksRef.current, { type: "audio/wav" });
         const audioFile = new File([audioBlob], "voice_record.wav", { type: "audio/wav" });
         setFile(audioFile);
-        stream.getTracks().forEach(track => track.stop()); // Tắt mic
+        stream.getTracks().forEach(track => track.stop());
       };
 
       mediaRecorder.start();
@@ -106,7 +113,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                   onClick={stopRecording} 
                   className="bg-red-500 text-white p-2 rounded-full hover:bg-red-600 transition"
                 >
-                  <FaStop size={14} />
+                  <Square size={14} />
                 </button>
               </div>
             ) : (
@@ -128,7 +135,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                 {/*Icon*/}
                 <div className="flex items-center justify-between">
     
-                  <div className="flex items-center gap-1">
+                  <div>
                     {/*File icon*/}
                     <button
                       type="button"
@@ -136,8 +143,13 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                       className="p-2.5 text-gray-600 hover:bg-gray-200 rounded-full transition-colors"
                       title="Đính kèm file"
                     >
-                      <FiPaperclip size={20} />
+                      <Paperclip size={20} />
                     </button>
+          
+                  </div>
+
+                  {/*Submit button*/}
+                  <div className="flex items-center gap-1">
                     {/*Record icon*/}
                     <button
                       type="button"
@@ -145,22 +157,16 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                       className="p-2.5 text-gray-600 hover:bg-gray-200 rounded-full transition-colors"
                       title="Ghi âm giọng nói"
                     >
-                      <FaMicrophone size={18} />
+                      <Mic size={18} />
                     </button>
-                  </div>
-
-                  {/*Submit button*/}
-                  <div>
+                    {/*Submit button*/}
                     <button
                       type="submit"
                       disabled={!message.trim() && !file}
                       className={`w-9 h-9 rounded-full flex items-center justify-center transition-all
-                        ${(message.trim() || file) 
-                          ? 'bg-orange-500 text-white shadow-md hover:scale-105' 
-                          : 'bg-gray-300 text-gray-500 cursor-not-allowed'}
-                      `}
+                           bg-orange-500 text-white shadow-md hover:scale-105`}
                     >
-                      <FaPaperPlane size={16} className="ml-0.5" />
+                      <SendHorizontal size={16} className="ml-0.5" />
                     </button>
                   </div>
                 </div>
@@ -172,7 +178,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
           {file && !isRecording && (
             <div className="mt-3 flex items-center gap-3 bg-gray-50 border border-gray-200 w-fit px-4 py-2 rounded-xl animate-in fade-in slide-in-from-bottom-2">
               <div className="bg-orange-100 p-2 rounded-lg text-orange-600">
-                <FiFile size={18} />
+                <FileText size={18} />
               </div>
               <div className="flex flex-col">
                 <span className="text-xs font-semibold text-gray-700 max-w-[200px] truncate">{file.name}</span>
@@ -186,7 +192,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                 }} 
                 className="ml-2 text-gray-400 hover:text-red-500 transition-colors"
               >
-                <FaTrash size={14}/>
+                <X size={14}/>
               </button>
             </div>
           )}

@@ -25,11 +25,11 @@ function MenuItem({
 }
 export default function Header() {
   const [openSetting, setOpenSetting] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
+  const settingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) =>{
-      if(menuRef.current && !menuRef.current.contains(e.target as Node)){
+      if(settingRef.current && !settingRef.current.contains(e.target as Node)){
         setOpenSetting(false);
       }
     };
@@ -57,10 +57,10 @@ export default function Header() {
             className="w-full bg-gray-200 rounded-full py-2 pl-11 pr-4 text-sm text-gray-600 focus:outline-none"
           />
         </div>
-
+        <div ref={settingRef} className="relative">
         {/* SETTINGS ICON */}
         <button
-          onClick={() => setOpenSetting(!openSetting)}
+          onClick={() => setOpenSetting(prev => !prev)}
           className="w-11 h-11 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-300"
         >
           <FiSettings className="text-black" size={16} />
@@ -68,7 +68,6 @@ export default function Header() {
         {openSetting && (
           
           <div 
-              ref={menuRef}
               className="absolute right-0 top-14 w-56 text-gray-500 bg-white border rounded-xl shadow-lg py-2 animate-in fade-in zoom-in-95"
               >
             <MenuItem icon={<FaMoon />} text="Chế độ tối" />
@@ -76,9 +75,11 @@ export default function Header() {
             <div className="my-1 border-t" />
             <MenuItem icon={<FiLogOut />} text="Đăng xuất" danger />
           </div>
+        
         )
 
         }
+        </div>
       </div>
 
     </header>

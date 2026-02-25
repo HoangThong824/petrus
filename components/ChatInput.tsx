@@ -2,14 +2,13 @@
 
 import { useState, useRef } from "react";
 import { 
-  Paperclip, 
   Mic, 
   SendHorizontal, 
   Square, 
-  Trash2, 
   X,
   FileText
 } from "lucide-react";
+import { BsPaperclip } from "react-icons/bs";
 
 interface ChatInputProps {
   onSend: (message: string, file?: File | null) => void;
@@ -133,38 +132,38 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                 {/*Icon*/}
                 <div className="flex items-center justify-between">
     
-                  <div>
+                  <div className="flex items-center gap-1">
                     {/*File icon*/}
                     <button
                       type="button"
                       onClick={() => fileRef.current?.click()}
-                      className="p-2.5 text-gray-600 hover:bg-gray-200 rounded-full transition-colors"
+                      className="w-11 h-11 rounded-full flex items-center justify-center transition-all
+                                bg-gray-200 text-[#1b2559] shadow-md hover:scale-105"
                       title="Đính kèm file"
                     >
-                      <Paperclip size={20} />
+                      <BsPaperclip size={20} strokeWidth={0.4}/>
                     </button>
-          
                   </div>
 
-                  {/*Submit button*/}
                   <div className="flex items-center gap-1">
                     {/*Record icon*/}
                     <button
                       type="button"
                       onClick={startRecording}
-                      className="p-2.5 text-gray-600 hover:bg-gray-200 rounded-full transition-colors"
+                      className="w-11 h-11 rounded-full flex items-center justify-center transition-all
+                                bg-gray-200 text-[#1b2559] shadow-md hover:scale-105"
                       title="Ghi âm giọng nói"
                     >
-                      <Mic size={18} />
+                      <Mic size={18} strokeWidth={2.5}/>
                     </button>
                     {/*Submit button*/}
                     <button
                       type="submit"
                       disabled={!message.trim() && !file}
-                      className={`w-9 h-9 rounded-full flex items-center justify-center transition-all
+                      className={`w-11 h-11 rounded-full flex items-center justify-center transition-all
                            bg-orange-500 text-white shadow-md hover:scale-105`}
                     >
-                      <SendHorizontal size={16} className="ml-0.5" />
+                      <SendHorizontal size={16} strokeWidth={2.5} className="ml-0.5" />
                     </button>
                   </div>
                 </div>

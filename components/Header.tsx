@@ -38,8 +38,8 @@ export default function Header() {
 
   return (
     <header className="bg-gray-100 border-b text-gray-300 px-6 py-2 flex items-center justify-between">
-      <div className="flex items-center">
-        <span className="text-[#1b2559] font-bold">Kho tài liệu</span>
+      <div className="flex flex-row gap-2 items-center">
+        <span className="text-[#1b2559] font-bold text-lg">Kho tài liệu</span>
         <ChevronDown className="text-black" size={20} />
       </div>
 

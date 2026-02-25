@@ -69,8 +69,8 @@ export default function Sidebar() {
       </div>
 
       {/* MENU */}
-      <nav className="px-4 space-y-3 text-sm font-bold text-gray-600">
-        <Link href="/" className="flex items-center gap-2">
+      <nav className="flex flex-col gap-4 px-4 font-bold text-gray-600">
+        <Link href="/" className="flex items-center gap-2 ">
           <BookOpen size={18} /> Kho tài liệu
         </Link>
         <Link href="/" className="flex items-center gap-2">
@@ -88,7 +88,7 @@ export default function Sidebar() {
         {historyGroups.map((group, groupIndex) => (
           <div key={groupIndex} className="mb-6">
             {/* TITLE */}
-            <div className="text-xs text-gray-400 font-medium mb-2">
+            <div className="text-sm text-gray-400 font-medium mb-2">
               {group.label}
             </div>
 
@@ -103,8 +103,8 @@ export default function Sidebar() {
                     onClick={() => router.push(chatPath)}
                     className={`
                       w-full text-left
-                      text-sm
-                      px-2 py-1.5
+                      text-[16px]
+                      py-2
                       rounded-md
                       ${
                         active
@@ -124,7 +124,7 @@ export default function Sidebar() {
 
       {/* USER */}
       <div className="p-4 border-t flex items-center gap-2">
-        <div className="w-10 h-10 rounded-full flex items-center justify-center bg-green-200 text-xl font-semibold text-green-700">
+        <div className="w-10 h-10 rounded-full flex items-center justify-center bg-green-200 text-[16px] font-extrabold text-green-700">
           MA
         </div>
 

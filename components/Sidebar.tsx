@@ -9,9 +9,11 @@ import {
 } from "react-icons/fa";
 import { FiLogOut, FiMessageSquare, FiPlus } from "react-icons/fi";
 import { 
+  MessageSquareText,
+  Plus,
   Mic, 
   BookOpen, 
-  Headset,
+  Headphones,
   LogOut,
 } from "lucide-react";
 
@@ -51,12 +53,12 @@ export default function Sidebar() {
       <div className="px-4 py-4">
         <button
           onClick={() => router.push("/chat/1")}//need update
-          className="w-full bg-orange-500 text-black py-2 rounded-full flex items-center justify-center"
+          className="w-full bg-orange-500 text-white py-2 rounded-full flex items-center justify-center"
         >
-          <div className="flex">
+          <div className="flex flex-row items-center gap-2">
             <div className="relative">
-              <FiMessageSquare size={20} />
-              <FiPlus
+              <MessageSquareText size={18} />
+              <Plus
                 size={10}
                 className="absolute -top-1 -right-1 bg-orange-500 rounded-full text-white"
               />
@@ -72,7 +74,7 @@ export default function Sidebar() {
           <BookOpen size={18} /> Kho tài liệu
         </Link>
         <Link href="/" className="flex items-center gap-2">
-          <Headset size={18} /> Luyện nghe
+          <Headphones size={18} /> Luyện nghe
         </Link>
         <Link href="/" className="flex items-center gap-2">
           <Mic size={18} /> Luyện nói
@@ -86,7 +88,7 @@ export default function Sidebar() {
         {historyGroups.map((group, groupIndex) => (
           <div key={groupIndex} className="mb-6">
             {/* TITLE */}
-            <div className="text-xs text-gray-400 font-semibold mb-2">
+            <div className="text-xs text-gray-400 font-medium mb-2">
               {group.label}
             </div>
 

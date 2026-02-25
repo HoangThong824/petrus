@@ -181,7 +181,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                 <FileText size={18} />
               </div>
               <div className="flex flex-col">
-                <span className="text-xs font-semibold text-gray-700 max-w-[200px] truncate">{file.name}</span>
+                <span className="text-xs font-semibold text-gray-700 max-w-50 truncate">{file.name}</span>
                 <span className="text-[10px] text-gray-400">{(file.size / 1024).toFixed(1)} KB</span>
               </div>
               <button 

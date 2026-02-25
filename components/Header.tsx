@@ -40,7 +40,7 @@ export default function Header() {
   return (
     <header className="bg-gray-100 border-b text-gray-300 px-6 py-2 flex items-center justify-between">
       <div className="flex items-center">
-        <span className="text-black font-semibold">Kho tài liệu</span>
+        <span className="text-[#1b2559] font-bold">Kho tài liệu</span>
         <FiChevronDown className="text-black" size={20} />
       </div>
 
@@ -59,26 +59,23 @@ export default function Header() {
         </div>
         <div ref={settingRef} className="relative">
         {/* SETTINGS ICON */}
-        <button
-          onClick={() => setOpenSetting(prev => !prev)}
-          className="w-11 h-11 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-300"
-        >
+          <button
+            onClick={() => setOpenSetting(prev => !prev)}
+            className="w-11 h-11 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-300"
+          >
           <FiSettings className="text-black" size={16} />
-        </button>
-        {openSetting && (
-          
-          <div 
-              className="absolute right-0 top-14 w-56 text-gray-500 bg-white border rounded-xl shadow-lg py-2 animate-in fade-in zoom-in-95"
-              >
-            <MenuItem icon={<FaMoon />} text="Chế độ tối" />
-            <MenuItem icon={<FiTrash2 />} text="Xóa lịch sử chat" danger />
-            <div className="my-1 border-t" />
-            <MenuItem icon={<FiLogOut />} text="Đăng xuất" danger />
-          </div>
-        
-        )
-
-        }
+          </button>
+          {openSetting && (
+            
+            <div 
+                className="absolute right-0 top-14 w-56 text-gray-500 bg-white border rounded-xl shadow-lg py-2 animate-in fade-in zoom-in-95"
+                >
+              <MenuItem icon={<FaMoon />} text="Chế độ tối" />
+              <MenuItem icon={<FiTrash2 />} text="Xóa lịch sử chat" danger />
+              <div className="my-1 border-t" />
+              <MenuItem icon={<FiLogOut />} text="Đăng xuất" danger />
+            </div>
+          )}
         </div>
       </div>
 

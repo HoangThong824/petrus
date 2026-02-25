@@ -44,7 +44,7 @@ export default function Message({ sender, text, time, fileUrl, fileType, fileNam
 
             {/* Audio */}
             {fileType === "audio" && fileUrl && (
-              <audio controls className="h-10 w-full min-w-[240px] rounded-lg">
+              <audio controls className="h-10 w-full min-w-60 rounded-lg">
                 <source src={fileUrl} />
               </audio>
             )}
@@ -53,7 +53,7 @@ export default function Message({ sender, text, time, fileUrl, fileType, fileNam
             {fileType === "other" && fileUrl && (
                <div className="flex items-center gap-3 bg-white/10 p-2 rounded-lg border border-white/20">
                   <FaFileAlt className="text-white" />
-                  <span className="truncate max-w-[150px] text-xs underline decoration-dotted">{fileName}</span>
+                  <span className="truncate max-w-38 text-xs underline decoration-dotted">{fileName}</span>
                   <a href={fileUrl} download={fileName} className="bg-white/20 p-1.5 rounded-full hover:bg-white/30">
                     <FaDownload size={10} />
                   </a>

@@ -29,7 +29,17 @@ export default function ChatInput({ onSend }: ChatInputProps) {
     setFile(null);
     if (fileRef.current) fileRef.current.value = ""; // Reset input file
   };
-
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  // Nếu nhấn Enter và KHÔNG giữ phím Shift
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault(); // Ngăn việc thêm dòng mới trong textarea
+      
+      // Chỉ gửi khi có nội dung hoặc có file
+      if (message.trim() || file) {
+        handleSubmit(e); 
+      }
+    }
+  };
   // File handle
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -109,6 +119,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                     rows={2}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
+                    onKeyDown={handleKeyDown}
                     placeholder="Hỏi bất kỳ điều gì..."
                     className="w-full bg-transparent border-none focus:ring-0 text-gray-700 placeholder-gray-500 resize-none px-2 py-1"
                   />

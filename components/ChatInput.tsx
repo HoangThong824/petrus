@@ -86,7 +86,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
 
   return (
     <div className="bg-gray-100 relative z-10">
-      <div className="max-w-4xl mx-auto px-4 py-4">
+      <div className="max-w-4xl mx-auto p-4">
         <form onSubmit={handleSubmit}>
           {/* --- INPUT FILE (ẨN) - Đặt ở đây để luôn hoạt động --- */}
           <input
@@ -115,7 +115,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
               </div>
             ) : (
               /* Input interface*/
-              <div className="flex flex-col w-full bg-gray-200 rounded-3xl p-3 shadow-sm">
+              <div className="flex flex-col w-full bg-gray-200 rounded-3xl px-6 py-4 shadow-sm">
                 
                 {/*Input*/}
                 <div className="w-full">
@@ -125,7 +125,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                     onChange={(e) => setMessage(e.target.value)}
                     onKeyDown={handleKeyDown}
                     placeholder="Hỏi bất kỳ điều gì..."
-                    className="w-full bg-transparent border-none focus:ring-0 text-gray-700 placeholder-gray-500 resize-none px-2 py-1"
+                    className="w-full bg-transparent border-none focus:ring-0 text-gray-700 placeholder-gray-500 resize-none"
                   />
                   {/* Display file/record*/}
                     {file && !isRecording && (
@@ -163,7 +163,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                                 bg-gray-200 text-[#1b2559] shadow-md hover:scale-105"
                       title="Đính kèm file"
                     >
-                      <BsPaperclip size={20} strokeWidth={0.4}/>
+                      <BsPaperclip size={20}/>
                     </button>
                   </div>
 
@@ -185,7 +185,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                       className={`w-11 h-11 rounded-full flex items-center justify-center transition-all
                            bg-orange-500 text-white shadow-md hover:scale-105`}
                     >
-                      <SendHorizontal size={16} strokeWidth={2.5} fill="#ffffff" className="ml-0.5" />
+                      <SendHorizontal size={14} strokeWidth={2.5} fill="#ffffff" className="ml-0.5" />
                     </button>
                   </div>
                 </div>

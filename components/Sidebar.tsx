@@ -21,7 +21,7 @@ const historyGroups = [
     items: ["Luyện Ielts đạt 7.5", "Nghe B1", "Tài liệu Toán lớp 9", "Quản lý cơ sở vật chất"],
   },
   {
-    label: "TRƯỚC ĐÓ",
+    label: "HÔM NAY",
     items: ["Luyện Ielts đạt 7.5", "Nghe B1", "Quản lý cơ sở vật chất"],
   },
 ];
@@ -58,18 +58,18 @@ export default function Sidebar() {
       `}>
         
         {/*LOGO*/}
-        <div className="p-6 font-bold text-lg text-black border-b border-gray-300 flex justify-between items-center">
-          PÉTRUS KÝ
+        <div className="py-3 pl-6 flex justify-between items-center">
+          <img src="/img/logo-fotter.png" className="h-10 md:h-14" />
           <button onClick={toggleSidebar} className="md:hidden">
             <X size={20} />
           </button>
         </div>
 
         {/*NEW CHAT*/}
-        <div className="px-4 py-4">
+        <div className="px-4 pt-5 pb-2">
           <button
             onClick={() => { router.push("/chat/1"); setIsOpen(false); }}
-            className="w-full bg-orange-500 text-white py-2 rounded-full flex items-center justify-center hover:bg-orange-600 transition-colors"
+            className="w-full bg-[#ff7300] text-white py-2 rounded-full flex items-center justify-center hover:bg-orange-600 transition-colors"
           >
             <div className="flex flex-row items-center gap-2">
               <div className="relative">
@@ -82,14 +82,14 @@ export default function Sidebar() {
         </div>
 
         {/* MENU */}
-        <nav className="flex flex-col gap-6 p-4 font-bold text-gray-600">
-          <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2 text-[16px] hover:text-black transition-colors">
+        <nav className="flex flex-col gap-8 p-4 font-semibold text-[#475569] text-[16px]">
+          <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2 hover:text-black transition-colors">
             <BookOpen size={18} /> Kho tài liệu
           </Link>
-          <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2 text-[16px] hover:text-black transition-colors">
+          <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2 hover:text-black transition-colors">
             <Headphones size={18} /> Luyện nghe
           </Link>
-          <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2 text-[16px] hover:text-black transition-colors">
+          <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2 hover:text-black transition-colors">
             <Mic size={18} /> Luyện nói
           </Link>
         </nav>
@@ -100,7 +100,7 @@ export default function Sidebar() {
         <div className="flex-1 overflow-y-auto px-4">
           {historyGroups.map((group, groupIndex) => (
             <div key={groupIndex} className="mb-6">
-              <div className="text-sm text-gray-400 font-medium mb-2 uppercase">{group.label}</div>
+              <div className="text-sm text-[#718096] font-medium mb-2 uppercase">{group.label}</div>
               <div className="space-y-1">
                 {group.items.map((item, itemIndex) => {
                   const chatPath = `/chat/${groupIndex}-${itemIndex}`;
@@ -110,7 +110,7 @@ export default function Sidebar() {
                       key={itemIndex}
                       onClick={() => { router.push(chatPath); setIsOpen(false); }}
                       className={`w-full text-left text-[16px] py-2 px-3 rounded-md transition-all ${
-                        active ? "bg-gray-100 text-black font-semibold" : "text-gray-800 hover:bg-gray-100"
+                        active ? "bg-gray-100 text-[#475569] font-medium" : "text-[#475569] hover:bg-gray-100"
                       }`}
                     >
                       {item}
@@ -123,13 +123,13 @@ export default function Sidebar() {
         </div>
 
         {/*USER*/}
-        <div className="p-4 border-t border-gray-300 flex items-center gap-2">
-          <div className="w-10 h-10 rounded-full flex items-center justify-center bg-green-200 text-[16px] font-extrabold text-green-700">
+        <div className="p-4 border-t border-gray-300 flex items-center gap-2.5">
+          <div className="w-10 h-10 rounded-full flex items-center justify-center bg-[#d6ffe6] text-[16px] font-extrabold text-[#009d3e]">
             MA
           </div>
-          <span className="text-sm text-black font-semibold">Adela Parkson</span>
+          <span className="text-sm text-[#1b2559] font-bold">Adela Parkson</span>
           <button className="ml-auto w-9 h-9 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50">
-            <LogOut size={18} className="text-gray-500" />
+            <LogOut size={18} className="text-[#1b2559]" />
           </button>
         </div>
       </aside>

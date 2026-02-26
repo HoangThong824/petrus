@@ -9,58 +9,90 @@ interface MessageProps {
   fileType?: "image" | "audio" | "other";
   fileName?: string;
 }
-
-export default function Message({ sender, text, time, fileUrl, fileType, fileName }: MessageProps) {
+export default function Message({
+  sender,
+  text,
+  time,
+  fileUrl,
+  fileType,
+  fileName,
+}: MessageProps) {
   const isUser = sender === "user";
 
   return (
-    <div className={`flex ${isUser ? "justify-end" : "justify-start"} mb-6 animate-in fade-in slide-in-from-bottom-1`}>
+    <div
+      className={`flex ${
+        isUser ? "justify-end" : "justify-start"
+      } mb-6 animate-in fade-in slide-in-from-bottom-1`}
+    >
+      {/* BOT */}
       {!isUser && (
-        /*BOT INTERFACE*/
-        <div className="flex items-start gap-3 max-w-[85%]">
-          <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-700 font-bold text-xs shadow-sm shrink-0">
+        <div className="flex items-start gap-3 max-w-[80%]">
+          {/* Avatar */}
+          <div className="w-10 h-10 rounded-full bg-[#d6ffe6] flex items-center justify-center text-[#009d3e] font-extrabold text-[16px] shadow-sm shrink-0">
             Pek
           </div>
-          <div className="flex flex-col gap-1">
-             <div className="bg-white border border-gray-100 px-4 py-3 rounded-2xl shadow-sm text-gray-700 text-sm">
-                {text}
-                <span className="text-[10px] text-gray-400 ml-1">{time}</span>
-             </div>
+
+          {/* Bubble */}
+          <div className="bg-white border border-gray-200 p-3 rounded-2xl shadow-sm text-[#1b2559] text-sm font-medium flex flex-col">
+            <p className="leading-relaxed">{text}</p>
+            <span className="text-xs  text-gray-400 self-end mt-1">
+              {time}
+            </span>
           </div>
         </div>
       )}
 
+      {/* USER */}
       {isUser && (
-        /*USER INTERFACE*/
-        <div className="flex flex-col items-end gap-1 max-w-[85%]">
-          <div className="bg-[#006633] px-4 py-3 rounded-2xl shadow-md text-white text-sm">
-            
-            {/* Text */}
-            {text && <p className={`leading-relaxed ${fileUrl ? "mb-3" : ""}`}>{text}</p>}
+        <div className="max-w-[80%]">
+          <div className="bg-[#007b48] p-3 rounded-2xl shadow-md text-white text-sm font-medium">
+            <div className="flex flex-row justify-center items-center flex-wrap gap-2.5">
+              {/* Text */}
+            {text && (
+              <p className={`leading-relaxed ${fileUrl ? "mb-2" : ""}`}>
+                {text}
+              </p>
+            )}
 
             {/* Image */}
             {fileType === "image" && fileUrl && (
-              <img src={fileUrl} alt="uploaded" className="max-w-full rounded-lg border border-white/20 mb-1" style={{ maxHeight: '200px' }} />
+              <img
+                src={fileUrl}
+                alt="uploaded"
+                className="rounded-lg border border-white/20 mb-2 max-h-[200px]"
+              />
             )}
 
             {/* Audio */}
             {fileType === "audio" && fileUrl && (
-              <audio controls className="h-10 w-full min-w-60 rounded-lg">
+              <audio controls className="h-10 w-full rounded-lg mb-2">
                 <source src={fileUrl} />
               </audio>
             )}
 
             {/* File */}
             {fileType === "other" && fileUrl && (
-               <div className="flex items-center gap-3 bg-white/10 p-2 rounded-lg border border-white/20">
-                  <File className="text-white" size={14} />
-                  <span className="truncate max-w-38 text-xs underline decoration-dotted">{fileName}</span>
-                  <a href={fileUrl} download={fileName} className="bg-white/20 p-1.5 rounded-full hover:bg-white/30">
-                    <Download size={10} />
-                  </a>
-               </div>
+              <div className="flex items-center gap-3 bg-white/10 p-2 rounded-lg border border-white/20 mb-2">
+                <File size={14} />
+                <span className="truncate max-w-[140px] text-xs underline decoration-dotted">
+                  {fileName}
+                </span>
+                <a
+                  href={fileUrl}
+                  download={fileName}
+                  className="bg-white/20 p-1.5 rounded-full hover:bg-white/30"
+                >
+                  <Download size={10} />
+                </a>
+              </div>
             )}
-            <span className="text-[10px] text-gray-400 mr-1">{time}</span>
+
+            {/* Time */}
+            <span className="text-xs text-white/60">
+              {time}
+            </span>
+            </div>
           </div>
         </div>
       )}

@@ -182,7 +182,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                     <button
                       type="submit"
                       disabled={!message.trim() && !file}
-                      className={`w-11 h-11 rounded-full border border-gray-300 flex items-center justify-center transition-all
+                      className={`w-11 h-11 rounded-full flex items-center justify-center transition-all
                            bg-orange-500 text-white shadow-md hover:scale-105`}
                     >
                       <SendHorizontal size={16} strokeWidth={2.5} fill="#ffffff" className="ml-0.5" />

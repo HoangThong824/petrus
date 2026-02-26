@@ -64,17 +64,8 @@ export default function Header() {
           >
           < Settings className="text-black" size={16} />
           </button>
-          {openSetting && (
-            
-            <div 
-                className="absolute right-0 top-14 w-56 text-gray-500 bg-white border rounded-xl shadow-lg py-2 animate-in fade-in zoom-in-95"
-                >
-              <MenuItem icon={<MoonIcon size={16} />} text="Chế độ tối" />
-              <MenuItem icon={<Trash size={16} />} text="Xóa lịch sử chat" danger />
-              <div className="my-1 border-t" />
-              <MenuItem icon={<LogOut size={16} />} text="Đăng xuất" danger />
-            </div>
-          )}
+          {/* SETTINGS DROPDOWN */}
+          {/* TODO*/}
         </div>
       </div>
 

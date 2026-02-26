@@ -43,9 +43,9 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-80 bg-white border-r flex flex-col">
+    <aside className="w-80 bg-white border-r border-gray-300 flex flex-col">
       {/* LOGO */}
-      <div className="p-4 font-bold text-lg text-black border-b border-gray-300">
+      <div className="p-6 font-bold text-lg text-black border-b border-gray-300">
         PÉTRUS KÝ
       </div>
 
@@ -59,6 +59,7 @@ export default function Sidebar() {
             <div className="relative">
               <MessageSquareText size={18} />
               <Plus
+                strokeWidth={4}
                 size={10}
                 className="absolute -top-1 -right-1 bg-orange-500 rounded-full text-white"
               />
@@ -69,14 +70,14 @@ export default function Sidebar() {
       </div>
 
       {/* MENU */}
-      <nav className="flex flex-col gap-4 px-4 font-bold text-gray-600">
-        <Link href="/" className="flex items-center gap-2 ">
+      <nav className="flex flex-col gap-6 p-4 font-bold text-gray-600">
+        <Link href="/" className="flex items-center gap-2 text-[16px]">
           <BookOpen size={18} /> Kho tài liệu
         </Link>
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2 text-[16px]">
           <Headphones size={18} /> Luyện nghe
         </Link>
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2 text-[16px]">
           <Mic size={18} /> Luyện nói
         </Link>
       </nav>
@@ -123,7 +124,7 @@ export default function Sidebar() {
       </div>
 
       {/* USER */}
-      <div className="p-4 border-t flex items-center gap-2">
+      <div className="p-4 border-t border-gray-300 flex items-center gap-2">
         <div className="w-10 h-10 rounded-full flex items-center justify-center bg-green-200 text-[16px] font-extrabold text-green-700">
           MA
         </div>

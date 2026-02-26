@@ -127,6 +127,28 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                     placeholder="Hỏi bất kỳ điều gì..."
                     className="w-full bg-transparent border-none focus:ring-0 text-gray-700 placeholder-gray-500 resize-none px-2 py-1"
                   />
+                  {/* Display file/record*/}
+                    {file && !isRecording && (
+                      <div className="mt-3 flex items-center gap-3 bg-gray-50 border border-gray-200 w-fit px-4 py-2 rounded-xl animate-in fade-in slide-in-from-bottom-2">
+                        <div className="bg-orange-100 p-2 rounded-lg text-orange-600">
+                          <FileText size={18} />
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-xs font-semibold text-gray-700 max-w-50 truncate">{file.name}</span>
+                          <span className="text-[10px] text-gray-400">{(file.size / 1024).toFixed(1)} KB</span>
+                        </div>
+                        <button 
+                          type="button" 
+                          onClick={() => {
+                            setFile(null);
+                            if (fileRef.current) fileRef.current.value = ""; //Reset
+                          }} 
+                          className="ml-2 text-gray-400 hover:text-red-500 transition-colors"
+                        >
+                          <X size={14}/>
+                        </button>
+                      </div>
+                    )}
                 </div>
 
                 {/*Icon*/}
@@ -137,7 +159,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                     <button
                       type="button"
                       onClick={() => fileRef.current?.click()}
-                      className="w-11 h-11 rounded-full flex items-center justify-center transition-all
+                      className="w-11 h-11 rounded-full border border-gray-300 flex items-center justify-center transition-all
                                 bg-gray-200 text-[#1b2559] shadow-md hover:scale-105"
                       title="Đính kèm file"
                     >
@@ -150,7 +172,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                     <button
                       type="button"
                       onClick={startRecording}
-                      className="w-11 h-11 rounded-full flex items-center justify-center transition-all
+                      className="w-11 h-11 rounded-full border border-gray-300 flex items-center justify-center transition-all
                                 bg-gray-200 text-[#1b2559] shadow-md hover:scale-105"
                       title="Ghi âm giọng nói"
                     >
@@ -160,39 +182,17 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                     <button
                       type="submit"
                       disabled={!message.trim() && !file}
-                      className={`w-11 h-11 rounded-full flex items-center justify-center transition-all
+                      className={`w-11 h-11 rounded-full border border-gray-300 flex items-center justify-center transition-all
                            bg-orange-500 text-white shadow-md hover:scale-105`}
                     >
-                      <SendHorizontal size={16} strokeWidth={2.5} className="ml-0.5" />
+                      <SendHorizontal size={16} strokeWidth={2.5} fill="#ffffff" className="ml-0.5" />
                     </button>
                   </div>
                 </div>
+                
               </div>
             )}
           </div>
-
-          {/* Display file/record*/}
-          {file && !isRecording && (
-            <div className="mt-3 flex items-center gap-3 bg-gray-50 border border-gray-200 w-fit px-4 py-2 rounded-xl animate-in fade-in slide-in-from-bottom-2">
-              <div className="bg-orange-100 p-2 rounded-lg text-orange-600">
-                <FileText size={18} />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xs font-semibold text-gray-700 max-w-50 truncate">{file.name}</span>
-                <span className="text-[10px] text-gray-400">{(file.size / 1024).toFixed(1)} KB</span>
-              </div>
-              <button 
-                type="button" 
-                onClick={() => {
-                  setFile(null);
-                  if (fileRef.current) fileRef.current.value = ""; //Reset
-                }} 
-                className="ml-2 text-gray-400 hover:text-red-500 transition-colors"
-              >
-                <X size={14}/>
-              </button>
-            </div>
-          )}
         </form>
       </div>
     </div>

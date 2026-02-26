@@ -37,13 +37,13 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="bg-gray-100 border-b text-gray-300 px-6 py-2 flex items-center justify-between">
+    <header className="bg-gray-100 border-b text-gray-300 px-6 py-4 flex items-center justify-between">
       <div className="flex flex-row gap-2 items-center">
         <span className="text-[#1b2559] font-bold text-lg">Kho tài liệu</span>
         <ChevronDown className="text-black" size={20} />
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-4">
         {/* SEARCH */}
         <div className="relative w-80">
           <Search
@@ -53,7 +53,7 @@ export default function Header() {
           <input
             type="text"
             placeholder="Tìm kiếm đoạn chat"
-            className="w-full bg-gray-200 rounded-full py-2 pl-11 pr-4 text-sm text-gray-600 focus:outline-none"
+            className="w-full bg-gray-200 rounded-full py-3 pl-11 pr-4 text-sm text-gray-600 focus:outline-none"
           />
         </div>
         <div ref={settingRef} className="relative">

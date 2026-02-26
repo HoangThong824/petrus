@@ -16,7 +16,7 @@ export default function Message({ sender, text, time, fileUrl, fileType, fileNam
   return (
     <div className={`flex ${isUser ? "justify-end" : "justify-start"} mb-6 animate-in fade-in slide-in-from-bottom-1`}>
       {!isUser && (
-        // --- BOT INTERFACE ---
+        /*BOT INTERFACE*/
         <div className="flex items-start gap-3 max-w-[85%]">
           <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-700 font-bold text-xs shadow-sm shrink-0">
             Pek
@@ -31,7 +31,7 @@ export default function Message({ sender, text, time, fileUrl, fileType, fileNam
       )}
 
       {isUser && (
-        // --- USER INTERFACE---
+        /*USER INTERFACE*/
         <div className="flex flex-col items-end gap-1 max-w-[85%]">
           <div className="bg-[#006633] px-4 py-3 rounded-2xl shadow-md text-white text-sm">
             

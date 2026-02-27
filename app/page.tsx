@@ -75,11 +75,11 @@ export default function HomePage() {
                 </div>
 
                 {/* TEXT */}
-                <div className="flex flex-col gap-3">
-                  <div className="font-bold text-[#1b2559] text-[16px] group-hover:text-orange-500">
+                <div className="flex flex-col gap-1">
+                  <div className="font-bold text-[#1b2559] text-base leading-7.5 group-hover:text-orange-500">
                     {item.title}
                   </div>
-                  <div className="font-medium text-sm text-[#718096]">
+                  <div className="font-medium text-sm text-[#718096] leading-6">
                     {item.desc}
                   </div>
                 </div>

@@ -43,19 +43,19 @@ export default function Header() {
       {/* Title  */}
       {!isSearchActive && (
         <div className="flex flex-row gap-2 items-center">
-          <span className="text-[#1b2559] font-bold text-base md:text-lg whitespace-nowrap">Kho tài liệu</span>
+          <span className="text-[#1b2559] font-bold text-base md:text-lg leading-7 whitespace-nowrap">Kho tài liệu</span>
           <ChevronDown className="text-black" size={18} />
         </div>
       )}
 
       {/*SET&SEARCH AREA*/}
-      <div className={`flex items-center gap-2 md:gap-4 transition-all duration-300 ${isSearchActive ? "w-full" : ""}`}>
+      <div className={`flex items-center gap-2 transition-all duration-300 ${isSearchActive ? "w-full" : ""}`}>
         
         {/*SEARCH BOX*/}
         <div className={`relative flex items-center transition-all duration-300 ${isSearchActive ? "flex-1" : ""}`}>
           <div className={`
             flex items-center bg-gray-200 rounded-full h-11 transition-all duration-300
-            ${isSearchActive ? "w-full px-4" : "w-11 md:w-80 md:px-4"}
+            ${isSearchActive ? "w-full px-4" : "w-11 md:w-76 md:px-4"}
           `}>
             {/*SEARCH ICON */}
             <button 
@@ -93,6 +93,7 @@ export default function Header() {
           <button
             onClick={() => setOpenSetting((prev) => !prev)}
             className="w-11 h-11 rounded-full border border-gray-200 flex items-center justify-center bg-white hover:scale-105 transition-transform shrink-0"
+            title="Cài đặt"
           >
             <Settings className="text-black" size={20} />
           </button>

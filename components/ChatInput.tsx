@@ -125,7 +125,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                     onChange={(e) => setMessage(e.target.value)}
                     onKeyDown={handleKeyDown}
                     placeholder="Hỏi bất kỳ điều gì..."
-                    className="w-full bg-transparent border-none focus:outline-none text-sm font-medium leading-[24px] text-[#1b2559] placeholder-[#718096] resize-none"
+                    className="w-full bg-transparent border-none focus:outline-none text-sm font-medium leading-6 text-[#1b2559] placeholder-[#718096] resize-none"
                   />
                   {/* Display file/record*/}
                     {file && !isRecording && (
@@ -184,6 +184,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                       disabled={!message.trim() && !file}
                       className={`w-11 h-11 rounded-full flex items-center justify-center transition-all
                            bg-orange-500 text-white shadow-md hover:scale-105`}
+                      title="Submit"
                     >
                       <SendHorizontal size={14} strokeWidth={2.5} fill="#ffffff" className="ml-0.5" />
                     </button>

@@ -35,8 +35,8 @@ export default function Message({
 
           {/* Bubble */}
           <div className="bg-white border border-gray-200 p-3 rounded-2xl text-[#1b2559] text-sm font-medium flex flex-col">
-            <p className="leading-[24px] text-sm font-medium flex items-center">{text}</p>
-            <span className="text-xs font-normal leading-[24px] text-[#718096] self-end mt-1">
+            <p className="leading-6 text-sm font-medium flex items-center">{text}</p>
+            <span className="text-xs font-normal leading-6 text-[#718096] self-end mt-1">
               {time}
             </span>
           </div>
@@ -50,7 +50,7 @@ export default function Message({
             <div className="flex flex-row justify-center items-center gap-2.5">
               {/* Text */}
             {text && (
-              <p className={`leading-[24px] text-sm font-medium flex items-center ${fileUrl ? "mb-2" : ""}`}>
+              <p className={`leading-6 text-sm font-medium flex items-center ${fileUrl ? "mb-2" : ""}`}>
                 {text}
               </p>
             )}
@@ -60,7 +60,7 @@ export default function Message({
               <img
                 src={fileUrl}
                 alt="uploaded"
-                className="rounded-lg border border-white/20 mb-2 max-h-[200px]"
+                className="rounded-lg border border-gray-600 mb-2 max-h-50"
               />
             )}
 
@@ -73,15 +73,15 @@ export default function Message({
 
             {/* File */}
             {fileType === "other" && fileUrl && (
-              <div className="flex items-center gap-3 bg-white/10 p-2 rounded-lg border border-white/20 mb-2">
+              <div className="flex items-center gap-3 bg-gray-500 p-2 rounded-lg border border-gray-600 mb-2">
                 <File size={14} />
-                <span className="truncate max-w-[140px] text-xs underline decoration-dotted">
+                <span className="truncate max-w-35 text-xs underline decoration-dotted">
                   {fileName}
                 </span>
                 <a
                   href={fileUrl}
                   download={fileName}
-                  className="bg-white/20 p-1.5 rounded-full hover:bg-white/30"
+                  className="bg-gray-600 p-1.5 rounded-full hover:bg-gray-500 transition-all"
                 >
                   <Download size={10} />
                 </a>
@@ -89,7 +89,7 @@ export default function Message({
             )}
 
             {/* Time */}
-            <span className="text-xs font-normal leading-[24px] text-[#d6ffe6]">
+            <span className="text-xs font-normal leading-6 text-[#d6ffe6]">
               {time}
             </span>
             </div>

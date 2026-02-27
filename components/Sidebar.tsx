@@ -71,7 +71,7 @@ export default function Sidebar() {
             onClick={() => { router.push("/chat/1"); setIsOpen(false); }}
             className="w-full bg-[#ff7300] text-white py-2 rounded-full flex items-center justify-center hover:bg-orange-600 transition-colors"
           >
-            <div className="flex flex-row items-center gap-2.5 text-base font-medium leading-[28px] tracking-normal">
+            <div className="flex flex-row items-center gap-2.5 text-base font-medium leading-7 tracking-normal">
               <div className="relative">
                 <MessageSquareText size={18} />
                 <Plus strokeWidth={4} size={10} className="absolute -top-1 -right-1 bg-[#ff7300] rounded-full text-white" />
@@ -82,7 +82,7 @@ export default function Sidebar() {
         </div>
 
         {/* MENU */}
-        <nav className="flex flex-col gap-8 px-6 py-4 font-bold text-[#475569] text-base leading-[30px] ">
+        <nav className="flex flex-col gap-8 px-6 py-4 font-bold text-[#475569] text-base leading-7.5">
           <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2 hover:text-black transition-colors">
             <BookOpen size={18} /> Kho tài liệu
           </Link>
@@ -121,7 +121,7 @@ export default function Sidebar() {
                             router.push(chatPath);
                             setIsOpen(false);
                           }}
-                          className={`w-full text-left text-base leading-[28px] py-3 rounded-md transition-all font-medium text-[#475569]
+                          className={`w-full text-left text-base leading-7 py-3 rounded-md transition-all font-medium text-[#475569]
                             ${active ? "bg-gray-100" : "hover:bg-gray-100"}
                           `}
                         >
@@ -147,8 +147,8 @@ export default function Sidebar() {
             MA
           </div>
           <span className="text-sm text-[#1b2559] font-bold">Adela Parkson</span>
-          <button className="ml-auto w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center hover:scale-105 transition-all">
-            <LogOut size={18} className="text-[#1b2559]" />
+          <button className="ml-auto w-11 h-11 rounded-full border border-gray-200 flex items-center justify-center hover:scale-105 transition-all">
+            <LogOut size={20} className="text-[#1b2559]" />
           </button>
         </div>
       </aside>

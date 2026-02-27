@@ -71,10 +71,10 @@ export default function Sidebar() {
             onClick={() => { router.push("/chat/1"); setIsOpen(false); }}
             className="w-full bg-[#ff7300] text-white py-2 rounded-full flex items-center justify-center hover:bg-orange-600 transition-colors"
           >
-            <div className="flex flex-row items-center gap-2 text-[16px] font-medium">
+            <div className="flex flex-row items-center gap-2.5 text-base font-medium leading-[28px] tracking-normal">
               <div className="relative">
                 <MessageSquareText size={18} />
-                <Plus strokeWidth={4} size={10} className="absolute -top-1 -right-1 bg-orange-500 rounded-full text-white" />
+                <Plus strokeWidth={4} size={10} className="absolute -top-1 -right-1 bg-[#ff7300] rounded-full text-white" />
               </div>
               Đoạn chat mới
             </div>
@@ -82,7 +82,7 @@ export default function Sidebar() {
         </div>
 
         {/* MENU */}
-        <nav className="flex flex-col gap-10 px-6 py-4 font-bold text-[#475569] text-[16px]">
+        <nav className="flex flex-col gap-8 px-6 py-4 font-bold text-[#475569] text-base leading-[30px] ">
           <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2 hover:text-black transition-colors">
             <BookOpen size={18} /> Kho tài liệu
           </Link>
@@ -94,10 +94,10 @@ export default function Sidebar() {
           </Link>
         </nav>
 
-        <div className="my-4 border-b border-gray-200" />
+        <div className=" border-b mb-6 border-gray-200" />
 
         {/*HISTORY CHAT*/}
-        <div className="flex-1 overflow-y-auto px-4">
+        <div className="flex-1 overflow-y-auto px-6">
           {historyGroups.map((group, groupIndex) => (
             <div key={groupIndex} className="mb-6">
               <div className="text-sm text-[#718096] font-medium mb-2 uppercase">{group.label}</div>
@@ -109,7 +109,7 @@ export default function Sidebar() {
                     <button
                       key={itemIndex}
                       onClick={() => { router.push(chatPath); setIsOpen(false); }}
-                      className={`w-full text-left text-[16px] py-2 px-3 rounded-md transition-all font-medium text-[#475569] ${
+                      className={`w-full text-left text-[16px] py-2 rounded-md transition-all font-medium text-[#475569] ${
                         active ? "bg-gray-100" : " hover:bg-gray-100"
                       }`}
                     >
@@ -128,7 +128,7 @@ export default function Sidebar() {
             MA
           </div>
           <span className="text-sm text-[#1b2559] font-bold">Adela Parkson</span>
-          <button className="ml-auto w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50">
+          <button className="ml-auto w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center hover:scale-105 transition-all">
             <LogOut size={18} className="text-[#1b2559]" />
           </button>
         </div>

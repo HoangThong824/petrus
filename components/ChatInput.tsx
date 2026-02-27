@@ -125,7 +125,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                     onChange={(e) => setMessage(e.target.value)}
                     onKeyDown={handleKeyDown}
                     placeholder="Hỏi bất kỳ điều gì..."
-                    className="w-full bg-transparent border-none focus:outline-none text-[#1b2559] placeholder-[#718096] resize-none"
+                    className="w-full bg-transparent border-none focus:outline-none text-sm text-[#1b2559] placeholder-[#718096] resize-none"
                   />
                   {/* Display file/record*/}
                     {file && !isRecording && (
@@ -176,7 +176,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                                 bg-gray-200 text-[#1b2559] hover:scale-105"
                       title="Ghi âm giọng nói"
                     >
-                      <Mic size={20} strokeWidth={2.5}/>
+                      <Mic size={20} strokeWidth={2}/>
                     </button>
                     {/*Submit button*/}
                     <button

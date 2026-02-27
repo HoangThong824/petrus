@@ -91,7 +91,7 @@ export default function Header() {
         <div ref={settingRef} className={`relative ${isSearchActive ? "hidden md:block" : "block"}`}>
           <button
             onClick={() => setOpenSetting((prev) => !prev)}
-            className="w-11 h-11 rounded-full border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 shrink-0"
+            className="w-11 h-11 rounded-full border border-gray-200 flex items-center justify-center bg-white hover:scale-105 transition-transform shrink-0"
           >
             <Settings className="text-black" size={20} />
           </button>

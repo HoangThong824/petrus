@@ -93,7 +93,7 @@ export default function Header() {
             onClick={() => setOpenSetting((prev) => !prev)}
             className="w-11 h-11 rounded-full border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 shrink-0"
           >
-            <Settings className="text-black" size={18} />
+            <Settings className="text-black" size={20} />
           </button>
 
           {/*Dropdown Menu*/}

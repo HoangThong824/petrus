@@ -167,16 +167,16 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                     </button>
                   </div>
 
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-2">
                     {/*Record icon*/}
                     <button
                       type="button"
                       onClick={startRecording}
                       className="w-11 h-11 rounded-full border border-gray-300 flex items-center justify-center transition-all
-                                bg-gray-200 text-[#1b2559] shadow-md hover:scale-105"
+                                bg-gray-200 text-[#1b2559] hover:scale-105"
                       title="Ghi âm giọng nói"
                     >
-                      <Mic size={18} strokeWidth={2.5}/>
+                      <Mic size={20} strokeWidth={2.5}/>
                     </button>
                     {/*Submit button*/}
                     <button

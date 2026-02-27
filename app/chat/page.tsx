@@ -18,13 +18,13 @@ export default function ChatPage() {
   const [messages, setMessages] = useState<MessageType[]>([]);
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  // Tự động cuộn xuống dưới cùng
+  //auto scroll
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   const handleSend = async (text: string, file?: File | null) => {
-  // 1️⃣ Hiển thị message user trước
+  //Display user
   const userMsg: MessageType = {
     sender: "user",
     text,
@@ -45,7 +45,7 @@ export default function ChatPage() {
 
   setMessages((prev) => [...prev, userMsg]);
 
-  // Tạo FormData
+  //FormData
   const formData = new FormData();
   formData.append("text", text);
   if (file) formData.append("file", file);
@@ -58,7 +58,7 @@ export default function ChatPage() {
 
   const data = await res.json();
 
-  // Bot trả lời
+  // Bot reply
   const botMsg: MessageType = {
     sender: "bot",
     text: data.reply,
@@ -78,8 +78,8 @@ export default function ChatPage() {
       <main className="flex-1 flex flex-col h-full relative">
         <Header />
 
-        {/* DANH SÁCH TIN NHẮN */}
-        <div className="flex-1 overflow-y-auto px-4 py-6 scroll-smooth">
+        {/* List messages */}
+        <div className="flex-1 overflow-y-auto   px-10 xl:px-30 py-6 scroll-smooth">
           <div className="max-w-4xl mx-auto">
              {messages.length === 0 && (
                 <div className="text-center text-gray-400 mt-20">
@@ -93,9 +93,10 @@ export default function ChatPage() {
             <div ref={bottomRef} className="h-4" />
           </div>
         </div>
-
         {/* INPUT */}
-        <ChatInput onSend={handleSend} />
+        <div className="shrink-0">
+          <ChatInput onSend={handleSend} />
+        </div>
       </main>
     </div>
   );

@@ -40,7 +40,7 @@ export default function Sidebar() {
         onClick={toggleSidebar}
         className="fixed top-4 left-4 z-60 p-2 rounded-md md:hidden"
       >
-        {!isOpen && <Menu size={24} />}
+        {!isOpen && <Menu color="#1b2559" size={24} />}
       </button>
 
       {isOpen && (
@@ -60,18 +60,18 @@ export default function Sidebar() {
         {/*LOGO*/}
         <div className="py-3 pl-6 flex justify-between items-center border-b border-gray-200">
           <img src="/img/logo-fotter.png" className="h-10 md:h-14" />
-          <button onClick={toggleSidebar} className="md:hidden">
-            <X size={20} />
+          <button onClick={toggleSidebar} className="md:hidden px-4">
+            <X color="#1b2559" size={20} />
           </button>
         </div>
 
         {/*NEW CHAT*/}
-        <div className="px-4 pt-5 pb-2">
+        <div className="px-6 pt-5 pb-2">
           <button
             onClick={() => { router.push("/chat/1"); setIsOpen(false); }}
             className="w-full bg-[#ff7300] text-white py-2 rounded-full flex items-center justify-center hover:bg-orange-600 transition-colors"
           >
-            <div className="flex flex-row items-center gap-2">
+            <div className="flex flex-row items-center gap-2 text-[16px] font-medium">
               <div className="relative">
                 <MessageSquareText size={18} />
                 <Plus strokeWidth={4} size={10} className="absolute -top-1 -right-1 bg-orange-500 rounded-full text-white" />
@@ -82,7 +82,7 @@ export default function Sidebar() {
         </div>
 
         {/* MENU */}
-        <nav className="flex flex-col gap-8 p-4 font-semibold text-[#475569] text-[16px]">
+        <nav className="flex flex-col gap-10 px-6 py-4 font-bold text-[#475569] text-[16px]">
           <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2 hover:text-black transition-colors">
             <BookOpen size={18} /> Kho tài liệu
           </Link>

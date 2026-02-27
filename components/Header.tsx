@@ -36,7 +36,7 @@ export default function Header() {
   }, [isSearchActive]);
 
   return (
-    <header className="bg-gray-100 border-b text-gray-300 py-4 flex items-center justify-between
+    <header className="w-full bg-gray-100 border-b text-gray-200 py-4.5 flex items-center justify-between
                         px-4 pl-16 md:pl-6 md:px-6 relative z-10">
       
       {/* Title  */}
@@ -91,7 +91,7 @@ export default function Header() {
         <div ref={settingRef} className={`relative ${isSearchActive ? "hidden md:block" : "block"}`}>
           <button
             onClick={() => setOpenSetting((prev) => !prev)}
-            className="w-11 h-11 rounded-full border border-gray-300 flex items-center justify-center bg-white hover:bg-gray-50 shrink-0"
+            className="w-11 h-11 rounded-full border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 shrink-0"
           >
             <Settings className="text-black" size={18} />
           </button>

@@ -125,7 +125,7 @@ export default function ChatInput({ onSend }: ChatInputProps) {
                     onChange={(e) => setMessage(e.target.value)}
                     onKeyDown={handleKeyDown}
                     placeholder="Hỏi bất kỳ điều gì..."
-                    className="w-full bg-transparent border-none focus:ring-0 text-gray-700 placeholder-gray-500 resize-none"
+                    className="w-full bg-transparent border-none focus:outline-none text-[#1b2559] placeholder-[#718096] resize-none"
                   />
                   {/* Display file/record*/}
                     {file && !isRecording && (

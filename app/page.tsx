@@ -52,34 +52,34 @@ export default function HomePage() {
 
       {/* Topic */}
       <div className="py-10 flex-1 flex items-center justify-center">
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col gap-3 items-center">
           {/* TITLE */}
-          <h1 className="text-3xl font-bold text-[#1c2451] mb-2">
+          <h1 className="text-[34px] font-bold text-[#1b2559]">
             Chọn chủ đề
           </h1>
-          <p className="text-gray-500 mb-10">
+          <p className="text-[#718096] font-medium md:mb-20">
             Lựa chọn chủ đề bạn quan tâm
           </p>
 
           {/* GRID */}
-          <div className="grid grid-cols-2 gap-6 max-w-3xl">
+          <div className="grid grid-cols-2 gap-4 max-w-3xl">
             {topics.map((item, index) => (
               <Link
                 key={index}
                 href="/chat"//need change when update
-                className="group bg-gray-100 rounded-xl shadow-md hover:shadow-lg transition p-5 flex items-center gap-4"
+                className="group bg-gray-100 rounded-xl hover:shadow-lg transition p-3 flex items-start gap-4"
               >
                 {/* ICON */}
-                <div className={`w-12 h-12 rounded-full bg-linear-to-br ${item.color} flex items-center justify-center text-white text-xl shrink-0`}>
+                <div className={`w-10 h-10 rounded-full bg-linear-to-br ${item.color} flex items-center justify-center text-white text-xl shrink-0`}>
                   {item.icon}
                 </div>
 
                 {/* TEXT */}
-                <div>
-                  <div className="font-semibold text-[#1c2451] group-hover:text-orange-500">
+                <div className="flex flex-col gap-3">
+                  <div className="font-bold text-[#1b2559] text-[16px] group-hover:text-orange-500">
                     {item.title}
                   </div>
-                  <div className="text-sm text-gray-500">
+                  <div className="font-medium text-sm text-[#718096]">
                     {item.desc}
                   </div>
                 </div>

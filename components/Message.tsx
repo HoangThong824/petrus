@@ -36,7 +36,7 @@ export default function Message({
           {/* Bubble */}
           <div className="bg-white border border-gray-200 p-3 rounded-2xl shadow-sm text-[#1b2559] text-sm font-medium flex flex-col">
             <p className="leading-relaxed">{text}</p>
-            <span className="text-xs  text-gray-400 self-end mt-1">
+            <span className="text-xs font-normal text-gray-400 self-end mt-1">
               {time}
             </span>
           </div>
@@ -89,7 +89,7 @@ export default function Message({
             )}
 
             {/* Time */}
-            <span className="text-xs text-white/60">
+            <span className="text-xs font-normal text-white/60">
               {time}
             </span>
             </div>

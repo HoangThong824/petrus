@@ -51,14 +51,14 @@ export default function Sidebar() {
       )}
       {/*Sidebar*/}
       <aside className={`
-        fixed inset-y-0 left-0 z-50 w-80 bg-white border-r border-gray-300 flex flex-col
+        fixed inset-y-0 left-0 z-50 w-80 bg-white border-r border-gray-200 flex flex-col
         transition-transform duration-300 ease-in-out
         ${isOpen ? "translate-x-0" : "-translate-x-full"} 
         md:translate-x-0 md:relative 
       `}>
         
         {/*LOGO*/}
-        <div className="py-3 pl-6 flex justify-between items-center">
+        <div className="py-3 pl-6 flex justify-between items-center border-b border-gray-200">
           <img src="/img/logo-fotter.png" className="h-10 md:h-14" />
           <button onClick={toggleSidebar} className="md:hidden">
             <X size={20} />
@@ -94,7 +94,7 @@ export default function Sidebar() {
           </Link>
         </nav>
 
-        <div className="my-4 border-b border-gray-300" />
+        <div className="my-4 border-b border-gray-200" />
 
         {/*HISTORY CHAT*/}
         <div className="flex-1 overflow-y-auto px-4">
@@ -109,8 +109,8 @@ export default function Sidebar() {
                     <button
                       key={itemIndex}
                       onClick={() => { router.push(chatPath); setIsOpen(false); }}
-                      className={`w-full text-left text-[16px] py-2 px-3 rounded-md transition-all ${
-                        active ? "bg-gray-100 text-[#475569] font-medium" : "text-[#475569] hover:bg-gray-100"
+                      className={`w-full text-left text-[16px] py-2 px-3 rounded-md transition-all font-medium text-[#475569] ${
+                        active ? "bg-gray-100" : " hover:bg-gray-100"
                       }`}
                     >
                       {item}
@@ -123,12 +123,12 @@ export default function Sidebar() {
         </div>
 
         {/*USER*/}
-        <div className="p-4 border-t border-gray-300 flex items-center gap-2.5">
+        <div className="px-6 py-5 border-t border-gray-200 flex items-center gap-2.5">
           <div className="w-10 h-10 rounded-full flex items-center justify-center bg-[#d6ffe6] text-[16px] font-extrabold text-[#009d3e]">
             MA
           </div>
           <span className="text-sm text-[#1b2559] font-bold">Adela Parkson</span>
-          <button className="ml-auto w-9 h-9 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50">
+          <button className="ml-auto w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50">
             <LogOut size={18} className="text-[#1b2559]" />
           </button>
         </div>

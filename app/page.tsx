@@ -52,7 +52,7 @@ export default function HomePage() {
 
       {/* Topic */}
       <div className="py-30 flex-1 flex items-center justify-center">
-        <div className="flex flex-col gap-3 items-center">
+        <div className="flex flex-col items-center">
           {/* TITLE */}
           <h1 className="text-[34px] font-bold text-[#1b2559]">
             Chọn chủ đề

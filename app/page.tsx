@@ -51,7 +51,7 @@ export default function HomePage() {
       <Header />
 
       {/* Topic */}
-      <div className="py-10 flex-1 flex items-center justify-center">
+      <div className="py-30 flex-1 flex items-center justify-center">
         <div className="flex flex-col gap-3 items-center">
           {/* TITLE */}
           <h1 className="text-[34px] font-bold text-[#1b2559]">

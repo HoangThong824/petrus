@@ -118,14 +118,14 @@ export default function ChatInput({ onSend }: ChatInputProps) {
               <div className="flex flex-col w-full bg-gray-200 rounded-3xl px-6 py-4 shadow-sm">
                 
                 {/*Input*/}
-                <div className="w-full">
+                <div className="w-full pb-2.5">
                   <textarea
                     rows={2}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     onKeyDown={handleKeyDown}
                     placeholder="Hỏi bất kỳ điều gì..."
-                    className="w-full bg-transparent border-none focus:outline-none text-sm text-[#1b2559] placeholder-[#718096] resize-none"
+                    className="w-full bg-transparent border-none focus:outline-none text-sm font-medium leading-[24px] text-[#1b2559] placeholder-[#718096] resize-none"
                   />
                   {/* Display file/record*/}
                     {file && !isRecording && (

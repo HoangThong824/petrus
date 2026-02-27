@@ -68,7 +68,7 @@ export default function Sidebar() {
         {/*NEW CHAT*/}
         <div className="px-6 pt-5 pb-2">
           <button
-            onClick={() => { router.push("/chat/1"); setIsOpen(false); }}
+            onClick={() => { router.push("/chat"); setIsOpen(false); }}
             className="w-full bg-[#ff7300] text-white py-2 rounded-full flex items-center justify-center hover:bg-orange-600 transition-colors"
           >
             <div className="flex flex-row items-center gap-2.5 text-base font-medium leading-7 tracking-normal">

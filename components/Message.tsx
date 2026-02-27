@@ -23,7 +23,7 @@ export default function Message({
     <div
       className={`flex ${
         isUser ? "justify-end" : "justify-start"
-      } mb-6 animate-in fade-in slide-in-from-bottom-1`}
+      } mb-4 animate-in fade-in slide-in-from-bottom-1`}
     >
       {/* BOT */}
       {!isUser && (

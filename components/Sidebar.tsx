@@ -97,29 +97,48 @@ export default function Sidebar() {
         <div className=" border-b mb-6 border-gray-200" />
 
         {/*HISTORY CHAT*/}
-        <div className="flex-1 overflow-y-auto px-6">
-          {historyGroups.map((group, groupIndex) => (
-            <div key={groupIndex} className="mb-6">
-              <div className="text-sm text-[#718096] font-medium mb-2 uppercase">{group.label}</div>
-              <div className="space-y-1">
-                {group.items.map((item, itemIndex) => {
-                  const chatPath = `/chat/${groupIndex}-${itemIndex}`;
-                  const active = pathname === chatPath;
-                  return (
-                    <button
-                      key={itemIndex}
-                      onClick={() => { router.push(chatPath); setIsOpen(false); }}
-                      className={`w-full text-left text-[16px] py-2 rounded-md transition-all font-medium text-[#475569] ${
-                        active ? "bg-gray-100" : " hover:bg-gray-100"
-                      }`}
-                    >
-                      {item}
-                    </button>
-                  );
-                })}
+        <div className="flex-1 overflow-y-auto">
+          {historyGroups.map((group, groupIndex) => {
+            const isLast = groupIndex === historyGroups.length - 1;
+
+            return (
+              <div key={groupIndex}>
+                {/* Group content */}
+                <div className="mb-6 px-6">
+                  <div className="text-sm text-[#718096] py-4 font-medium uppercase">
+                    {group.label}
+                  </div>
+
+                  <div>
+                    {group.items.map((item, itemIndex) => {
+                      const chatPath = `/chat/${groupIndex}-${itemIndex}`;
+                      const active = pathname === chatPath;
+
+                      return (
+                        <button
+                          key={itemIndex}
+                          onClick={() => {
+                            router.push(chatPath);
+                            setIsOpen(false);
+                          }}
+                          className={`w-full text-left text-base leading-[28px] py-3 rounded-md transition-all font-medium text-[#475569]
+                            ${active ? "bg-gray-100" : "hover:bg-gray-100"}
+                          `}
+                        >
+                          {item}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/*Border*/}
+                {!isLast && (
+                  <div className="border-b border-gray-200 mb-2" />
+                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/*USER*/}

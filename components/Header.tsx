@@ -23,6 +23,7 @@ function MenuItem({
     </button>
   );
 }
+
 export default function Header() {
   const [openSetting, setOpenSetting] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
@@ -54,7 +55,7 @@ export default function Header() {
         <div className={`relative flex items-center transition-all duration-300 ${isSearchActive ? "flex-1" : ""}`}>
           <div className={`
             flex items-center bg-gray-200 rounded-full h-11 transition-all duration-300
-            ${isSearchActive ? "w-full px-4 ring-2 ring-orange-500/20" : "w-11 md:w-80 md:px-4"}
+            ${isSearchActive ? "w-full px-4" : "w-11 md:w-80 md:px-4"}
           `}>
             {/*SEARCH ICON */}
             <button 

@@ -27,16 +27,16 @@ export default function Message({
     >
       {/* BOT */}
       {!isUser && (
-        <div className="flex items-start gap-3 max-w-[80%]">
+        <div className="flex items-start gap-3 max-w-[75%]">
           {/* Avatar */}
           <div className="w-10 h-10 rounded-full bg-[#d6ffe6] flex items-center justify-center text-[#009d3e] font-extrabold text-[16px] shadow-sm shrink-0">
             Pek
           </div>
 
           {/* Bubble */}
-          <div className="bg-white border border-gray-200 p-3 rounded-2xl shadow-sm text-[#1b2559] text-sm font-medium flex flex-col">
-            <p className="leading-relaxed">{text}</p>
-            <span className="text-xs font-normal text-gray-400 self-end mt-1">
+          <div className="bg-white border border-gray-200 p-3 rounded-2xl text-[#1b2559] text-sm font-medium flex flex-col">
+            <p className="leading-[24px] text-sm font-medium flex items-center">{text}</p>
+            <span className="text-xs font-normal leading-[24px] text-[#718096] self-end mt-1">
               {time}
             </span>
           </div>
@@ -47,10 +47,10 @@ export default function Message({
       {isUser && (
         <div className="max-w-[80%]">
           <div className="bg-[#007b48] p-3 rounded-2xl shadow-md text-white text-sm font-medium">
-            <div className="flex flex-row justify-center items-center flex-wrap gap-2.5">
+            <div className="flex flex-row justify-center items-center gap-2.5">
               {/* Text */}
             {text && (
-              <p className={`leading-relaxed ${fileUrl ? "mb-2" : ""}`}>
+              <p className={`leading-[24px] text-sm font-medium flex items-center ${fileUrl ? "mb-2" : ""}`}>
                 {text}
               </p>
             )}
@@ -89,7 +89,7 @@ export default function Message({
             )}
 
             {/* Time */}
-            <span className="text-xs font-normal text-white/60">
+            <span className="text-xs font-normal leading-[24px] text-[#d6ffe6]">
               {time}
             </span>
             </div>
